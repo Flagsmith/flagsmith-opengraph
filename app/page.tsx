@@ -6,6 +6,13 @@ export default function Home() {
   }}
   >
 
+    <h1>
+      Flagsmith-OpenGraph
+    </h1>
+    <p>
+      The following is an svg image url:
+    </p>
+
     <div style={{maxWidth:850, borderRadius:8, padding:25, marginBottom:50, background:'#22272E'}}>
       <h3 style={{
         color:'rgb(197, 209, 222)',
