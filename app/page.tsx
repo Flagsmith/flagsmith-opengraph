@@ -13,13 +13,13 @@ export default function Home() {
       The following is an svg image url:
     </p>
 
-    <div style={{background:'#22272E',maxWidth:850, borderRadius:8, padding:25, marginBottom:10,}}>
+    <div style={{background:'#22272E',maxWidth:850, borderRadius:8, padding:25,}}>
       <h3 style={{
         color:'rgb(197, 209, 222)',
       }}>Dark Mode</h3>
       <img style={{width:"100%"}} src='/api/image'/>
     </div>
-    <div style={{maxWidth:850, borderRadius:8, padding:25, marginBottom:50,}}>
+    <div style={{maxWidth:850, borderRadius:8, padding:25,}}>
       <h3>Light Mode</h3>
       <img style={{width:"100%"}} src='/api/image'/>
     </div>
