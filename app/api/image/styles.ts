@@ -46,6 +46,7 @@ export const styles = {
     container: {
         display: "flex",
         flexDirection: "column",
+        fontSize: 14,
         padding: 10,
         backgroundColor: '#22272E',
         borderRadius: 8,
@@ -72,14 +73,13 @@ export const styles = {
     } as CSSProperties,
     environment: {
         width: "100%",
-        fontSize: 16,
         fontWeight: 500,
         flex: "0 0 auto",
         display: "flex",
     } as CSSProperties,
     card: {
         width: "100%",
-        padding: 12,
+        padding: "8px 12px",
         borderRadius,
         backgroundColor: "rgba(0,0,0,.2)",
         display: "flex",
