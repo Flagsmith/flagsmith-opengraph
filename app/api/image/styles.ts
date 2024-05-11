@@ -107,7 +107,7 @@ export const styles = {
         width: 41,
         height: 24,
         borderRadius: 100,
-        backgroundColor: 'rgb(104, 55, 252)',
+        backgroundColor: 'rgba(255, 255, 255, 0.24)',
         color: 'rgb(144, 106, 246)',
         padding: 3,
         display: 'flex',
