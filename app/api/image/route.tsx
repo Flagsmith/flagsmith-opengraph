@@ -12,11 +12,11 @@ const colours = {
     border: "rgba(170, 170, 170, .5)",
     main: {
         purple: {
-            500: "rgb(115,64,196)",
+            500: "#7f47e6",
             400: "#906af6"
         },
         blue: {
-            500: "rgb(64, 108, 196)",
+            500: "#478BE6",
             400: "#6ab9f6"
         },
         red: {
@@ -24,13 +24,15 @@ const colours = {
             400: "#eb6d5a"
         },
         green: {
-            500: "#4c9d51",
+            500: "#57AB5A",
             400: "#65ab57"
         }
     }
 }
 
 export async function GET(req:  NextRequest, res: NextResponse) {
+
+    console.log(req.headers.get("cookie"))
     // Make sure the font exists in the specified path:
     const [regular, bold] = await Promise.all([
         fetch(
@@ -108,16 +110,16 @@ export async function GET(req:  NextRequest, res: NextResponse) {
                                 {`${v.environment_name}`}
                             </div>
                             <div style={{
-                                width:38,
-                                height:20,
+                                width:41,
+                                height:24,
                                 borderRadius:100,
                                 backgroundColor:'rgb(104, 55, 252)',
-                                padding:2,
+                                padding:3,
                                 display:'flex',
                                 justifyContent:'flex-end',
                                 alignItems:'center',
                             }}>
-                                <div style={{width:16,height:16,borderRadius:8,backgroundColor:'white'}}/>
+                                <div style={{width:18,height:18,borderRadius:9,backgroundColor:'white'}}/>
                             </div>
                         </div>
 
