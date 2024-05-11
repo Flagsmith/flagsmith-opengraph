@@ -54,19 +54,19 @@ export async function GET(req: NextRequest, res: NextResponse) {
         {
             "feature_state_value": 1,
             "feature_state_value_type": "int",
-            "environment_name": "original",
+            "environment_name": "Production",
             "feature_value": "True"
         },
         {
             "feature_state_value": "original",
             "feature_state_value_type": "unicode",
-            "environment_name": "test feature version 6",
+            "environment_name": "Staging",
             "feature_value": "True"
         },
         {
             "feature_state_value": "False",
             "feature_state_value_type": "Boolean",
-            "environment_name": "dev clone",
+            "environment_name": "QA",
             "feature_value": "False"
         }
     ]
