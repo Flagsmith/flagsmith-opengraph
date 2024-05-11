@@ -3,6 +3,8 @@ import {CSSProperties} from "react";
 export const borderRadius = 6
 export const colours = {
     border: "rgba(68,76,86,0.58)",
+    grey: "rgba(195,195,195,0.82)",
+    greyLight: "rgba(255,255,255,0.82)",
     title: "rgb(197, 209, 222)",
     main: {
         purple: {
@@ -40,38 +42,58 @@ export const colours = {
     }
 }
 
-export const styles  = {
+export const styles = {
+    container: {
+        display: "flex",
+        flexDirection: "column",
+        padding: 10,
+        backgroundColor: '#22272E',
+        borderRadius: 8,
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+    } as CSSProperties,
     row: {
         alignItems: 'center',
         color: colours.title,
         display: 'flex',
         flexDirection: 'row',
-        gap:8
+        gap: 8
+    } as CSSProperties,
+    column: {
+        color: colours.title,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8
+    } as CSSProperties,
+    indent: {
+        display: 'flex',
+        gap: 8,
+        flexDirection: 'column',
+        marginLeft: 10
     } as CSSProperties,
     environment: {
         width: "100%",
         fontSize: 16,
         fontWeight: 500,
         flex: "0 0 auto",
-        padding: 4,
         display: "flex",
     } as CSSProperties,
     card: {
         width: "100%",
         padding: 12,
         borderRadius,
-        backgroundColor: "rgba(0,0,0,.1)",
+        backgroundColor: "rgba(0,0,0,.2)",
         display: "flex",
+        flexWrap: 'wrap',
         border: `1px solid ${colours.border}`,
-        justifyContent: "space-between",
         alignItems: 'center',
     } as CSSProperties,
     subCard: {
-        width:"50%",
+        padding:8,
+        backgroundColor: "rgba(0,0,0,.1)",
     } as CSSProperties,
     chip: {
         borderRadius,
-        fontSize:13,
+        fontSize: 13,
         backgroundColor: 'rgba(29, 18, 62, 0.5)',
         border: '1px solid rgba(149, 108, 255, 0.32)',
         color: 'rgb(144, 106, 246)',
@@ -79,7 +101,7 @@ export const styles  = {
         display: "flex",
         padding: "3px 6px",
         paddingRight: "4px",
-        textAlign:'center'
+        textAlign: 'center'
     } as CSSProperties,
     switch: {
         width: 41,
