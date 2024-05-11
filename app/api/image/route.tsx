@@ -215,7 +215,7 @@ const items = [
         ),
         {
             width: 814,
-            height: items.length*80,
+            height: items.length*60,
             embedFont: false,
             fonts: [
                 {
