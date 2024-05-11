@@ -12,17 +12,9 @@ export default function Home() {
     <p>
       The following is an svg image url:
     </p>
-
-    <div style={{maxWidth:850, borderRadius:8, padding:25, marginBottom:50, background:'#22272E'}}>
-      <h3 style={{
-        color:'rgb(197, 209, 222)',
-      }}>Dark Mode</h3>
-      <img style={{width:"100%"}} src='/api/image'/>
+    <div style={{position:'relative'}}>
+      <img src={"/img.png"}/>
+      <img width="780" style={{position:"absolute", top:70, left:95}} src='/api/image'/>
     </div>
-    <div style={{maxWidth:850, borderRadius:8, padding:25, marginBottom:50,}}>
-      <h3>Light Mode</h3>
-      <img style={{width:"100%"}} src='/api/image'/>
-    </div>
-
   </div>
 }

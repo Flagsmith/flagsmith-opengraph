@@ -9,7 +9,7 @@ export const runtime = 'edge';
 
 const borderRadius = 6
 const colours = {
-    border: "rgb(68, 76, 86)",
+    border: "rgba(68,76,86,0.58)",
     title: "rgb(197, 209, 222)",
     main: {
         purple: {
@@ -106,6 +106,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
                                     width: "100%",
                                     padding: 12,
                                     borderRadius,
+                                    backgroundColor:"rgba(0,0,0,.1)",
                                     display: "flex",
                                     border: `1px solid ${colours.border}`,
                                     justifyContent: "space-between",
