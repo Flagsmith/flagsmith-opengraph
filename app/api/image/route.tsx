@@ -9,7 +9,8 @@ export const runtime = 'edge';
 
 const borderRadius = 6
 const colours = {
-    border: "rgba(170, 170, 170, .5)",
+    border: "rgb(68, 76, 86)",
+    title: "rgb(197, 209, 222)",
     main: {
         purple: {
             500: "#7f47e6",
@@ -73,19 +74,26 @@ export async function GET(req:  NextRequest, res: NextResponse) {
         (
             <div
                 style={{
-                    display: "flex",
-                    flexWrap:'wrap',
-                    flexDirection: "row",
+                    display:"flex",
+                    flexDirection:"column",
+                    padding:10,
+                    backgroundColor:'#22272E',
+                    borderRadius: 8,
                     fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
                 }}
             >
-                {items.map((v, i) => {
+                <div style={{
+                    display: "flex",
+                    flexWrap:'wrap',
+                    flexDirection: "row",
+                }}>
+                    {items.map((v, i) => {
                     const colourKey = Object.keys(colours.main)[i]
                     const color = colours.main[colourKey as keyof typeof colours.main][500]
                     return (
                     <div key={i} style={{
-                        width: "50%",
-                        fontSize:14,
+                        width: "100%",
+                        fontSize:16,
                         fontWeight: 500,
                         flex: "0 0 auto",
                         padding: 4,
@@ -94,7 +102,7 @@ export async function GET(req:  NextRequest, res: NextResponse) {
                     >
                         <div style={{
                             width:"100%",
-                            padding:8,
+                            padding:12,
                             borderRadius,
                             display:"flex",
                             border: `1px solid ${colours.border}`,
@@ -104,28 +112,50 @@ export async function GET(req:  NextRequest, res: NextResponse) {
                             <div style={
                                 {
                                     display:"flex",
-                                    color
+                                    color:colours.title
                                 }
                             }>
                                 {`${v.environment_name}`}
                             </div>
                             <div style={{
-                                width:41,
-                                height:24,
-                                borderRadius:100,
-                                backgroundColor:'rgb(104, 55, 252)',
-                                padding:3,
-                                display:'flex',
-                                justifyContent:'flex-end',
+                                display:"flex",
                                 alignItems:'center',
+                                gap: 8
                             }}>
-                                <div style={{width:18,height:18,borderRadius:9,backgroundColor:'white'}}/>
+                                {v.feature_state_value && (
+                                    <span style={{
+                                        borderRadius,
+                                        backgroundColor: 'rgba(29, 18, 62, 0.5)',
+                                        border:'1px solid rgba(149, 108, 255, 0.32)',
+                                        color:'rgb(144, 106, 246)',
+                                        textWrap:'nowrap',
+                                        display:"flex",
+                                        padding:"5px 12px 5px 12px"
+                                    }}>
+                                        {v.feature_state_value}
+                                    </span>
+                                )}
+                                <div style={{
+                                    width:41,
+                                    height:24,
+                                    borderRadius:100,
+                                    backgroundColor:'rgb(104, 55, 252)',
+                                    color: 'rgb(144, 106, 246)',
+                                    padding:3,
+                                    display:'flex',
+                                    justifyContent:'flex-end',
+                                    alignItems:'center',
+                                }}>
+                                    <div style={{width:18,height:18,borderRadius:9,backgroundColor:'white'}}/>
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
                 )
                 })}
+                </div>
             </div>
         ),
         {
