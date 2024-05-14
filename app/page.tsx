@@ -92,7 +92,6 @@ export default function Home() {
       {encodedData&&(
           <img style={{width:"100%"}} src={`/api/image?t=${encodedData}`}/>
       )}
-
     </div>
   </div>
 }
