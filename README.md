@@ -15,14 +15,30 @@ export type Item = {
     feature_value: boolean;
 }
 
-const items = [{
+const items: Item[] = [{
       "feature_state_value": "Green",
       "environment_name": "Production",
       "feature_value": true
 }]
+
 const url = `https://flagsmith-opengraph.vercel.app/?t=${jwtEncode({payload:items})}
 
 return (<img src={url}/>)
+```
+
+
+Alternatively, you can post to the following in order to get a base64 encoded SVG.
+
+```
+curl --location 'https://flagsmith-opengraph.vercel.app/api/image/base64' \
+--header 'Content-Type: application/json' \
+--data '[
+    {
+      "feature_state_value": "Blue",
+      "environment_name": "Development",
+      "feature_value": true
+    }
+  ]'
 ```
 
 See a demo:
