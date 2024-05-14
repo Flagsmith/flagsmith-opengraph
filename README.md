@@ -27,6 +27,12 @@ return (<img src={url}/>)
 ```
 
 
+Result:
+
+![image](https://flagsmith-opengraph.vercel.app/api/image?t=eyJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjpbeyJmZWF0dXJlX3N0YXRlX3ZhbHVlIjoiR3JlZW4iLCJlbnZpcm9ubWVudF9uYW1lIjoiUHJvZHVjdGlvbiIsImZlYXR1cmVfdmFsdWUiOnRydWV9XX0.WFP3PNZvWTC7xSVIFp9Ws7vW69kaOEkyAhkb7qQW3Hs)
+
+
+
 Alternatively, you can post to the following in order to get a base64 encoded SVG.
 
 ```
