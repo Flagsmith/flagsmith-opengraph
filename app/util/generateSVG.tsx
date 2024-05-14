@@ -1,26 +1,18 @@
 import {FC, ReactNode} from "react";
-import {colours, styles} from "@/app/api/image/styles";
+import {colours, styles} from "@/app/util/styles";
 import satori from "satori";
-import {transformItems} from "@/app/api/image/transformItems";
-import {Item} from "@/app/api/image/types";
+import {transformItems} from "@/app/util/transformItems";
+import {Item} from "@/app/util/types";
+import getFonts from "@/app/util/getFonts";
 
+type EnvironmentIconType = {
+    color: string,
+    color2: string
+}
 export default async function generateSVG(items: Item[]) {
-    const [regular, bold] = await Promise.all([
-        fetch(
-            new URL('../../../assets/regular.woff', import.meta.url),
-        ).then((res) => res.arrayBuffer()),
-        fetch(
-            new URL('../../../assets/bold.woff', import.meta.url),
-        ).then((res) => res.arrayBuffer())
-    ]);
-
-
+    const [regular, bold] = await getFonts()
     const transformedItems = transformItems(items)
 
-    type EnvironmentIconType = {
-        color: string,
-        color2: string
-    }
 
     const EnvironmentIcon: FC<EnvironmentIconType> = ({
                                                           color,

@@ -1,6 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
 import * as jose from 'jose'
-import generateSVG from "@/app/api/image/generateSVG";
+import generateSVG from "@/app/util/generateSVG";
 
 export const runtime = 'edge';
 

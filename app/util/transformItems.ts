@@ -1,4 +1,4 @@
-import {Item, TransformedItem} from "@/app/api/image/types";
+import {Item, TransformedItem} from "@/app/util/types";
 
 export function transformItems(items: Item[]): TransformedItem[] {
     return items.reduce((acc: TransformedItem[], curr: Item) => {
