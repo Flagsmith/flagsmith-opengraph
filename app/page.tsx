@@ -1,5 +1,71 @@
 'use client'
+
+import * as jose from 'jose'
+import {useEffect, useState} from "react";
 export default function Home() {
+  const data = [
+    {
+      "feature_state_value": "Blue",
+      "feature_state_value_type": "unicode",
+      "environment_name": "Development",
+      "feature_value": "False"
+    },
+    {
+      "feature_state_value": 1,
+      "feature_state_value_type": "int",
+      "environment_name": "Production",
+      "feature_value": "True"
+    },
+    {
+      "feature_state_value": "Green",
+      "feature_state_value_type": "unicode",
+      "environment_name": "Staging",
+      "feature_value": "True"
+    },
+    {
+      "feature_state_value_type": "Boolean",
+      "environment_name": "QA",
+      "feature_value": "False"
+    },
+    {
+      "segment_name": "flagsmith_team",
+      "feature_state_value": "Yellow",
+
+      "feature_state_value_type": "Boolean",
+      "environment_name": "Production",
+      "feature_value": "True"
+    },
+    {
+      "segment_name": "beta_users",
+      "feature_state_value": "Orange",
+
+      "feature_state_value_type": "Boolean",
+      "environment_name": "Production",
+      "feature_value": "True"
+    },
+    {
+      "segment_name": "50%_split",
+      "feature_state_value": "Green",
+      "feature_state_value_type": "Boolean",
+      "environment_name": "Production",
+      "feature_value": "True"
+    }
+  ]
+  const [encodedData, setEncodedData] = useState("");
+  useEffect(() => {
+    const parseJWT = async function () {
+      const alg = 'HS256'
+
+      const encodedData = await new jose.SignJWT({
+        payload: data
+      })
+          .setProtectedHeader({ alg })
+          .sign(new TextEncoder().encode('secret'))
+      const newData = encodeURIComponent(encodedData)
+      setEncodedData(newData)
+    }
+    parseJWT()
+  }, []);
   return <div
   style={{
     fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
@@ -17,11 +83,16 @@ export default function Home() {
       <h3 style={{
         color:'rgb(197, 209, 222)',
       }}>Dark Mode</h3>
-      <img style={{width:"100%"}} src='/api/image'/>
+      {encodedData&&(
+          <img style={{width:"100%"}} src={`/api/image?t=${encodedData}`}/>
+      )}
     </div>
     <div style={{maxWidth:850, borderRadius:8, padding:25,}}>
       <h3>Light Mode</h3>
-      <img style={{width:"100%"}} src='/api/image'/>
+      {encodedData&&(
+          <img style={{width:"100%"}} src={`/api/image?t=${encodedData}`}/>
+      )}
+
     </div>
   </div>
 }

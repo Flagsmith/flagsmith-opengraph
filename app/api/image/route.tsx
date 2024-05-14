@@ -3,6 +3,7 @@ import {NextRequest, NextResponse} from "next/server";
 import {transformItems} from "@/app/api/image/transformItems";
 import {borderRadius, colours, styles} from "@/app/api/image/styles";
 import {FC, ReactNode} from "react";
+import * as jose from 'jose'
 
 export const runtime = 'edge';
 
@@ -16,54 +17,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
             new URL('../../../assets/bold.woff', import.meta.url),
         ).then((res) => res.arrayBuffer())
     ]);
-const items = [
-    {
-        "feature_state_value": "Blue",
-        "feature_state_value_type": "unicode",
-        "environment_name": "Development",
-        "feature_value": "False"
-    },
-    {
-        "feature_state_value": 1,
-        "feature_state_value_type": "int",
-        "environment_name": "Production",
-        "feature_value": "True"
-    },
-    {
-        "feature_state_value": "Green",
-        "feature_state_value_type": "unicode",
-        "environment_name": "Staging",
-        "feature_value": "True"
-    },
-    {
-        "feature_state_value_type": "Boolean",
-        "environment_name": "QA",
-        "feature_value": "False"
-    },
-    {
-        "segment_name": "flagsmith_team",
-        "feature_state_value": "Yellow",
-
-        "feature_state_value_type": "Boolean",
-        "environment_name": "Production",
-        "feature_value": "True"
-    },
-    {
-        "segment_name": "beta_users",
-        "feature_state_value": "Orange",
-
-        "feature_state_value_type": "Boolean",
-        "environment_name": "Production",
-        "feature_value": "True"
-    },
-    {
-        "segment_name": "50%_split",
-        "feature_state_value": "Green",
-        "feature_state_value_type": "Boolean",
-        "environment_name": "Production",
-        "feature_value": "True"
-    }
-]
+const items = jose.decodeJwt(req.url.split("?t=")[1]).payload
     const transformedItems = transformItems(items)
 
 
