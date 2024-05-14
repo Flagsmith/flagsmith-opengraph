@@ -10,5 +10,10 @@ export function transformItems(items: Item[]): TransformedItem[] {
             acc.push(curr);
         }
         return acc;
-    }, []);
+    }, []).map((v)=>{
+        return {
+            ...v,
+            feature_value: `${v.feature_value}`.toLowerCase() === 'true'
+        }
+    });
 }
