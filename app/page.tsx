@@ -6,24 +6,20 @@ export default function Home() {
   const data = [
     {
       "feature_state_value": "Blue",
-      "feature_state_value_type": "unicode",
       "environment_name": "Development",
       "feature_value": "False"
     },
     {
       "feature_state_value": 1,
-      "feature_state_value_type": "int",
       "environment_name": "Production",
       "feature_value": "True"
     },
     {
       "feature_state_value": "Green",
-      "feature_state_value_type": "unicode",
       "environment_name": "Staging",
       "feature_value": "True"
     },
     {
-      "feature_state_value_type": "Boolean",
       "environment_name": "QA",
       "feature_value": "False"
     },
@@ -31,7 +27,6 @@ export default function Home() {
       "segment_name": "flagsmith_team",
       "feature_state_value": "Yellow",
 
-      "feature_state_value_type": "Boolean",
       "environment_name": "Production",
       "feature_value": "True"
     },
@@ -39,14 +34,12 @@ export default function Home() {
       "segment_name": "beta_users",
       "feature_state_value": "Orange",
 
-      "feature_state_value_type": "Boolean",
       "environment_name": "Production",
       "feature_value": "True"
     },
     {
       "segment_name": "50%_split",
       "feature_state_value": "Green",
-      "feature_state_value_type": "Boolean",
       "environment_name": "Production",
       "feature_value": "True"
     }
